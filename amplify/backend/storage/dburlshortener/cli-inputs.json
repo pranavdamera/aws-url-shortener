@@ -1,0 +1,10 @@
+{
+  "resourceName": "dburlshortener",
+  "tableName": "dburlshortener",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

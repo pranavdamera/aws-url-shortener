@@ -1,0 +1,63 @@
+{
+  "api": {
+    "apiurlshortener": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "amplifyurlshortenera1de62e4"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "amplifyurlshortenera1de62e4": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributeEnvMap": {
+            "Arn": "TABLE_ARN",
+            "Name": "TABLE_NAME"
+          },
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "storage",
+          "resourceName": "dburlshortener"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_amplifyurlshortenera1de62e4_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyurlshortenera1de62e4"
+        }
+      ]
+    },
+    "AMPLIFY_function_amplifyurlshortenera1de62e4_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "amplifyurlshortenera1de62e4"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "dburlshortener": {
+      "providerPlugin": "awscloudformation",
+      "service": "DynamoDB"
+    }
+  }
+}
